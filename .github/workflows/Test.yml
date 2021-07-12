@@ -38,7 +38,8 @@ jobs:
         run: |
           cd source || exit 1
           sudo apt-get install python3 config
-          pip3 install -r requirements.txt
+          pip3 install . 
+          pip3 install config
       - name: running bot
         timeout-minutes: 340
         continue-on-error: true
