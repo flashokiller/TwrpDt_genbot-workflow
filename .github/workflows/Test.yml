@@ -37,7 +37,7 @@ jobs:
       - name: Compile The home bot
         run: |
           cd source || exit 1
-          sudo apt-get install python3 config
+          sudo apt-get install python3 cipo
           pip3 install . 
       - name: running bot
         timeout-minutes: 340
