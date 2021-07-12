@@ -30,21 +30,20 @@ jobs:
       # Cleanup The Actions Workspace Using Custom Composite Run Actions
       - uses: rokibhasansagar/slimhub_actions@main
 
-      - name: Clone The Secret Mirror Repository
+      - name: Clone The Secret bot Repository
         run: |
-          git clone https://${GitHubName}:${{ secrets.GH_TOKEN }}@github.com/${{ secrets.MIRROR_REPOSLUG }} -b ${Branch} source
+          git clone https://${GitHubName}:${{ secrets.GH_TOKEN }}@github.com/${{ secrets.BOT_REPOSLUG }} -b ${Branch} source
 
-      - name: Compile The Mirroring Docker Container
+      - name: Compile The home bot
         run: |
           cd source || exit 1
           sudo apt-get install python python2
           pip3 install .
-      - name: running Docker
+      - name: running bot
         timeout-minutes: 340
         continue-on-error: true
         run: |
-          
-
+          python3 -m homebot
       - name: Loop Workflow
         continue-on-error: true
         run: |
