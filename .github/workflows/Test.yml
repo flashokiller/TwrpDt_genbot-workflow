@@ -37,8 +37,8 @@ jobs:
       - name: Compile The home bot
         run: |
           cd source || exit 1
-          sudo apt-get install python3
-          pip3 install .
+          sudo apt-get install python3 config
+          pip3 install -r requirements.txt
       - name: running bot
         timeout-minutes: 340
         continue-on-error: true
